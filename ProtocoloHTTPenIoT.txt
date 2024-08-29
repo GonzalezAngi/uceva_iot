@@ -1,0 +1,39 @@
+Protocolo HTTP en IoT
+
+
+
+
+Angie Lorena González Martínez
+
+
+1.	¿Qué ventajas ofrece HTTP en un entorno IoT cuando se trata de interoperabilidad con servicios web?
+Algunas de las ventajas que nos ofrece HTTP en un entorno IoT cuando se trata de interoperabilidad con servicios de web es que permite a los dispositivos IoT interactuar fácilmente con aplicaciones web, servicios en la nube, plataformas de análisis y APIs RESTful sin necesidad de convertir los datos o usar adaptadores adicionales. Todo esto es importante y necesario en estos entornos donde los dispositivos de IoT necesitan enviar datos a servicios de terceros.
+2.	Explica una situación en la que el uso de HTTP podría no ser ideal en un dispositivo IoT. ¿Qué alternativas considerarías y por qué?
+Una situación en la que el uso de HTTP podría no ser ideal en dispositivos IoT, sería en aquellos que tienen recursos limitados, como sensores de bajo consumo o dispositivos alimentados por baterías, esto se debe a que HTTP es un protocolo basado en texto y sin estado, lo que significa que cada solicitud y respuesta son independientes entre sí, además  implica un mayor consumo de ancho de banda y energía, así como una mayor latencia debido a la necesidad de establecer y cerrar conexiones TCP repetidamente.
+En este caso, algunas de las alternativas que considero más adecuadas, sería hacer uso de algunos protocolos que sean ligeros y eficiente, que sean diseñados específicamente para dispositivos con recursos limitados y redes de baja latencia y con limitaciones de ancho de banda.
+3.	Describe cómo funciona HTTP en términos de su estructura de solicitud y respuesta. ¿Cómo se gestionan los estados en HTTP?
+•	Los estados en HTTP se gestionan por medio de una solicitud y respuesta. Una solicitud en HTTP es enviada por un cliente por medio de un método GET o POST, una URL, cabeceras adicionales (como tipo de contenido o tipo de navegador) y, opcionalmente, un cuerpo de datos. 
+•	El servidor analiza la solicitud HTTP recibida para determinar qué acción se debe tomar. Esto incluye identificar el método HTTP, la URL solicitada, y cualquier cabecera o datos adicionales. 
+•	Dependiendo de la solicitud, el servidor puede acceder a un archivo en su sistema de archivos, ejecutar un script de servidor para generar contenido dinámico, o realizar cualquier otra operación necesaria para obtener el recurso solicita. 
+•	Una vez que el recurso está listo, el servidor construye una respuesta HTTP. Esta respuesta incluye un código de estado, cabeceras con información adicional, y el cuerpo del mensaje con el recurso solicitado. El servidor envía la respuesta HTTP de vuelta al cliente a través de la conexión TCP establecida. Esta respuesta contiene toda la información necesaria para que el cliente procese y muestre el recurso.
+•	Finalmente, dependiendo de la configuración y la versión de HTTP, el servidor puede cerrar la conexión TCP o mantenerla abierta para permitir más solicitudes.
+4.	En el contexto de IoT, ¿por qué es importante considerar el consumo de recursos al elegir HTTP como protocolo de comunicación?
+En el contexto de IoT es importante considerar el consumo de recursos al elegir HTTP como protocolo de comunicación, ya que puede ser costoso en términos de ancho de banda y consumo de energía, lo que no es ideal para dispositivos IoT con recursos limitados (como sensores de bajo consumo). Esto se debe a que HTTP es un protocolo basado en texto, que introduce una sobrecarga adicional en la comunicación. Por lo tanto, es crucial considerar estos factores al elegir HTTP, y en algunos casos, optar por protocolos más ligeros que minimicen el consumo de recursos.
+5.	¿Cómo puede un dispositivo IoT utilizar HTTP para interactuar con una API RESTful? Proporciona un ejemplo concreto.
+Un dispositivo IoT puede interactuar con una API RESTful utilizando el protocolo HTTP para enviar solicitudes a los endpoints de la API. Este enfoque es común en aplicaciones donde los dispositivos necesitan comunicarse con servicios en la nube para almacenar, procesar, o analizar datos.
+Un ejemplo serio, un sistema de riego inteligente que utiliza sensores de humedad del suelo para optimizar el uso de agua en un campo agrícola. Estos sensores envían datos a una API RESTful en la nube, donde se almacenan y procesan para ajustar el riego automáticamente.
+Proceso:
+•	Envío de la solicitud: El sensor de humedad, al detectar un cambio significativo en la humedad del suelo, envía una solicitud HTTP POST a la API RESTful del servicio en la nube utilizando la URL proporcionada.
+•	Recepción y procesamiento: La API recibe estos datos, los almacena en una base de datos, y los analiza en tiempo real.
+•	Respuesta de la API: La API responde al sensor confirmando la recepción de los datos con un código de estado HTTP 201 (Created). Esto asegura que la información ha sido almacenada correctamente.
+Con esta interacción, el sistema de riego puede ajustar automáticamente el riego en función de las condiciones del suelo, optimizando así el uso de agua y mejorando la eficiencia agrícola.
+
+
+
+6.	Comparando HTTP con otros protocolos como MQTT o CoAP, ¿en qué casos específicos considerarías seguir utilizando HTTP en un dispositivo IoT?
+Comparando HTTP con otros protocolos como MQTT o CoAP, HTTP sigue siendo una opción viable en los siguientes casos específicos:
+•	 Si el dispositivo IoT necesita interactuar con servicios que ya están basados en HTTP, como APIs RESTful, servicios web, o plataformas en la nube, HTTP es la opción natural debido a su amplia adopción y soporte.
+•	Si el dispositivo IoT tiene suficiente capacidad de procesamiento, ancho de banda, y energía, y no está restringido por estas limitaciones, HTTP puede ser utilizado sin mayores inconvenientes.
+•	En situaciones donde la simplicidad y la estandarización son más importantes que la eficiencia en el uso de recursos, HTTP puede ser preferido por su fácil implementación y soporte generalizado.
+
+
